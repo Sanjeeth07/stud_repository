@@ -1,0 +1,21 @@
+package com.student.config;
+
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter  {
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth)
+	{
+		auth.inMemoryAuthentication()
+        .withUser("user").password("password").roles("USER")
+        .and()
+        .withUser("admin").password("password").roles("USER", "ADMIN");
+
+}
+
+	
+	
+}

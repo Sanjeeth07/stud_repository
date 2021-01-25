@@ -1,0 +1,5 @@
+package com.student.service;
+@Service
+public class StudentService {
+
+}

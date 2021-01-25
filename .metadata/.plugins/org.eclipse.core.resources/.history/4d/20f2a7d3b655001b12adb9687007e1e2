@@ -1,0 +1,23 @@
+package com.student.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.student.entity.Student;
+import com.student.repository.StudentRepository;
+
+@Service
+public class StudentService {
+	@Autowired
+	private StudentRepository studentRepository;
+	
+	public Boolean addStudent(Student student)
+	{
+		Boolean sesFlag=false;
+		studentRepository.save(student);
+		sesFlag=true;
+		return sesFlag;
+		
+	}
+
+}

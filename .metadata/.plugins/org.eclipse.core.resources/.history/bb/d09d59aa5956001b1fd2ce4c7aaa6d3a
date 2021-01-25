@@ -1,0 +1,24 @@
+package com.student;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan({ "com.student.*" })
+public class StudentBackEndApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StudentBackEndApplication.class, args);
+	}
+	@Bean
+	   public WebMvcConfigurer corsConfigurer() {
+	      return new WebMvcConfigurerAdapter() {
+	         @Override
+	         public void addCorsMappings(CorsRegistry registry) {
+	            registry.addMapping("/*").allowedOrigins("http://localhost:4200");
+	         }
+	      };
+	   }
+
+}

@@ -1,0 +1,50 @@
+package com.student.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.student.entity.Student;
+import com.student.service.StudentService;
+
+@RestController
+public class StudentController {
+
+	
+	
+	//private Student student;
+	@Autowired 
+	private StudentService studentservice;
+	
+	@PostMapping("/addNewStudent")
+	public ResponseEntity<Boolean> addStudentRecord(@RequestBody Student student)
+	{
+		return Optional.ofNullable(studentservice.addStudent(student))
+		.map(val->new ResponseEntity<>(val,HttpStatus.OK))
+		.orElse(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+	}
+	@GetMapping("/readAllRecords")
+	public ResponseEntity<List<Student>> readAllRecords()
+	{
+		return Optional.ofNullable(studentservice.readAllStudentRecords())
+.map(res->new ResponseEntity<>(res,HttpStatus.OK))
+.orElse(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+	}
+	
+	@GetMapping("/readPassFailStudents")
+			public ResponseEntity<List<Integer>> getpassfailPercentage(){
+		return Optional.ofNullable(studentservice.viewPercentage())
+				.map(res->new ResponseEntity<>(res,HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+				
+			}
+			
+			
+}

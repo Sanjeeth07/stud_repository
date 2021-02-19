@@ -41,25 +41,23 @@ public class Student  implements Serializable{
 	private int socialMark;
 	@Column
 	private int totalMark;
-	@Column
-	private String userName;
+	/*
+	 * @Column private String userName;
+	 * 
+	 * private boolean editEnabled = false;
+	 */
 	
-	private boolean editEnabled = false;
 	
-	
-	
-	public String getUserName() {
-		return userName;
+	public Student() {
+		// TODO Auto-generated constructor stub
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public boolean isEditEnabled() {
-		return editEnabled;
-	}
-	public void setEditEnabled(boolean editEnabled) {
-		this.editEnabled = editEnabled;
-	}
+
+	/*
+	 * public String getUserName() { return userName; } public void
+	 * setUserName(String userName) { this.userName = userName; } public boolean
+	 * isEditEnabled() { return editEnabled; } public void setEditEnabled(boolean
+	 * editEnabled) { this.editEnabled = editEnabled; }
+	 */
 	public String getName() {
 		return name;
 	}

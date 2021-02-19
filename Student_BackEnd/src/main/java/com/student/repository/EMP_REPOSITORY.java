@@ -3,10 +3,9 @@ package com.student.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
-import com.student.entity.Student;
+import com.student.entity.EMP_DETAILS;
 
 @Repository
-public interface StudentRepository  extends CrudRepository<Student, Integer>{
+public interface EMP_REPOSITORY  extends CrudRepository<EMP_DETAILS, Integer>{
 
 }
